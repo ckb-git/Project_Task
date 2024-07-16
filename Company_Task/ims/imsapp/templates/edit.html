@@ -1,0 +1,39 @@
+{% extends "base.html" %}
+  
+{% block title %}Add New inventory Records{% endblock title %}
+  
+{% block content %}
+<div class="col-md-12">
+    <form method="POST" class="post-form" action="/update/{{inventory.id}}">  
+    {% csrf_token %}  
+    <div class="container">   
+        <div class="col-12">  
+            <h3>Update inventory</h3>  
+        </div> 
+        <div class="mb-3"> 
+            <label>Inventory Name:</label>  
+            <input type="text" class="form-control" name="name" id="id_name" required maxlength="100" value="{{ inventory.name }}" />  
+        </div> 
+        <div class="mb-3"> 
+            <label>Quantity:</label>  
+            <input type="number" class="form-control" name="quantity" id="id_quantity" value="{{ inventory.quantity }}" />  
+        </div> 
+        <div class="mb-3"> 
+            <label>Inventory cost:</label>  
+            <input type="number" class="form-control" name="cost" id="id_cost" value="{{ inventory.cost }}" />  
+        </div> 
+        <div class="mb-3"> 
+            <label>selling_price:</label>  
+            <input type="number" class="form-control" name="selling_price" id="id_selling_price" value="{{ inventory.selling_price }}" />  
+        </div> 
+        
+        <div class="mb-3">
+            {{ form.errors }}
+        </div>
+
+        <div class="mb-3"> 
+            <button type="submit" class="btn btn-success btn-lg">Update</button>  
+        </div> 
+    </div>  
+    </form>  
+{% endblock content %}   

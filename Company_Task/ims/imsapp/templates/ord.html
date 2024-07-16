@@ -1,0 +1,41 @@
+{% extends "base.html" %}
+  
+{% block title %}Order Records{% endblock title %}
+  
+{% block content %}
+<div class="col-md-12">
+    <form method="POST" class="post-form" action="/transaction">  
+        {% csrf_token %}  
+    
+    <div class="table-responsive">
+    <table id="bootstrapdatatable" class="table table-striped table-bordered" width="100%">
+    <thead>
+        
+        <th>Id</th>
+        <th>Name</th>
+        <th>quantity</th>
+        <th>selling_price</th>
+        
+        <th>Accepted</th>
+        <th>Rejected</th>
+    </thead>
+    <tbody>
+    {% for inv in orders %}  
+        <tr>  
+        
+        <td>{{ inv.id }}</td>  
+        <td>{{ inv.name }}</td>  
+        <td>{{ inv.quantity }}</td>  
+        <td>{{ inv.selling_price }}</td>
+        
+        <td><a href="/ord_placed/{{ inv.id }}" class="btn btn-primary">Accept</a></td>
+        <td><a href="/ord_reject/{{ inv.id }}" class="btn btn-danger">Reject</a></td> 
+        </tr>  
+    {% endfor %} 
+    </tbody>
+    </table>
+    </div>
+</div>
+
+
+{% endblock content %} 

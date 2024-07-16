@@ -1,0 +1,45 @@
+{% extends "base.html" %}
+  
+{% block title %} order Records{% endblock title %}
+  
+{% block content %}
+<div class="col-md-12">    
+    <form method="POST" class="post-form" action="/accept_reject/{{order.id}}">  
+        {% csrf_token %}
+    <div class="container">  
+        <div class="col-12">  
+        <h3>Details</h3>  
+        </div>  
+        
+        <div class="mb-3"> 
+            <label>Inventory Name:</label>  
+            <input type="text" class="form-control" name="name" id="id_name" required maxlength="100" value="{{ order.name }}" />
+        </div> 
+        
+         
+        <div class="mb-3"> 
+            <label>selling_price:</label>  
+            <input type="number" class="form-control" name="selling_price" id="id_selling_price" value="{{ order.selling_price }}" />   
+            
+        </div>
+
+        <div class="mb-3"> 
+            <label>Quantity:</label>  
+            <input type="number" class="form-control" name="quantity" id="id_Quantity" value="{{ order.quantity }}" />  
+        </div> 
+
+        <div class="mb-3"> 
+            <label>Status:</label>  
+            <input type="text" class="form-control" name="status" id="id_status" value="Rejected" />  
+        </div> 
+        
+    
+        <div class="mb-3"> 
+            <button type="submit" class="btn btn-primary">Confirm Order Rejected</button>    
+        </div> 
+      
+    </div> 
+     
+    </form>  
+</div> 
+{% endblock content %} 

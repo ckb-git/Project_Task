@@ -1,0 +1,38 @@
+{% extends "base.html" %}
+  
+{% block title %}Order Records{% endblock title %}
+  
+{% block content %}
+<h1>tran page</h1>
+<div class="col-md-12">
+    
+    <div class="table-responsive">
+    <table id="bootstrapdatatable" class="table table-striped table-bordered" width="100%">
+    <thead>
+        
+        <th>Id</th>
+        <th>Name</th>
+        <th>quantity</th>
+        <th>selling_price</th>
+        <th>Order Status</th>
+        
+    </thead>
+    <tbody>
+    {% for inv in trans %}  
+        <tr>  
+        
+        <td>{{ inv.id }}</td>  
+        <td>{{ inv.name }}</td>  
+        <td>{{ inv.quantity }}</td>  
+        <td>{{ inv.selling_price }}</td>
+        <td>{{ inv.status }}</td>
+        
+        
+        </tr>  
+    {% endfor %} 
+    </tbody>
+    </table>
+    </div>
+</div>
+
+{% endblock content %} 
